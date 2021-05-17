@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
             }
         });
         const tweetData = await rawResponse.json();
-        const images = tweetData[0]?.extended_entities?.media;
+        const images = tweetData[0] && tweetData[0].extended_entities && tweetData[0].extended_entities.media;
         
         if (images) {
             const alts = [];
